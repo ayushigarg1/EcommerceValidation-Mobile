@@ -40,31 +40,18 @@ public class BaseTest {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
     }
-    public Double getFormattedTotalSum(String amount){
+
+    public Double getFormattedTotalSum(String amount) {
         Double individualPrice = Double.parseDouble(amount.substring(1));
         return individualPrice;
 
     }
 
-    public void swipeAction(WebElement ele, String direction){
-        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of("elementId", ((RemoteWebElement) ele).getId(), "direction", direction, "percent", 0.75));
-
-    }
-
-    /*public void waitForPage(WebElement ele){
-        WebDriverWait wait =new  WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("ele"))));
-
-    }*/
-
-/*
-@AfterClass
+    @AfterClass
     public void tearDown() {
         driver.quit();
         service.stop();
     }
-*/
-
 
 }
 
